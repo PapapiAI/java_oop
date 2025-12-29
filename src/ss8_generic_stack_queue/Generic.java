@@ -39,56 +39,5 @@ public class Generic {
         }
 
         System.out.println("Tổng list1: " + list1);
-
-
-        /// Hãy thử tạo lớp Generic đơn giản
-        /// Sử dụng lớp Animal với kiểu generic tự tạo
-        Animal<String> a1 = new Animal<>();
-        a1.add("hello");
-        a1.add("123");
-
-        Animal<Integer> a2 = new Animal<>();
-        a2.add(456);
-        a2.add(789);
-
-        PrintUtil.printArray(a1);
-        PrintUtil.printArray(a2);
-    }
-}
-
-
-/// Tự tạo một lớp Generic
-class Animal<T> {
-    private final List<T> values = new ArrayList<>();
-
-    public void add(T value) {
-        values.add(value);
-    }
-
-    public List<T> getValues() {
-        return values;
-    }
-
-
-    /// Vì đã implements interface Iterable<T> cho Animal<T>
-    /// -> cần triển khai phương thức trừu tượng iterator() của interface Iterator
-//    @Override
-//    public @NotNull Iterator<T> iterator() {
-//        return values.iterator();
-//    }
-}
-
-
-class PrintUtil {
-    public static <T> void printArray(Animal<T> animal) {
-        for (T item : animal.getValues()) {
-            System.out.println(item);
-        }
-
-        /// Có thể lặp cho đối tượng animal không???
-//        for (T item : animal) {// animal đang là kiểu Animal -> không phải 1 đối tượng có thể lặp (Iterable)
-//            // -> Cần implements interface Iterable<T> cho Animal<T>
-//            System.out.println(item);
-//        }
     }
 }
